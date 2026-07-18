@@ -1,0 +1,43 @@
+# CodeRabbit configuration
+# Docs: https://docs.coderabbit.ai/reference/configuration
+#
+# NOTE: CodeRabbit reads this file from the repository's DEFAULT branch
+# (main), not from the PR's source branch. It must be committed to main
+# for these settings to take effect.
+
+language: "en-US"
+
+reviews:
+  profile: assertive          # 'assertive' surfaces more findings than 'chill' - good for this demo
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  sequence_diagrams: true
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+    # Base branches (besides the default branch, "main") that should also be
+    # reviewed. Accepts regex patterns; '.*' matches every branch.
+    base_branches:
+      - "dev"
+      - "feature/.*"
+      - "fix/.*"
+  tools:
+    eslint:
+      enabled: true
+    gitleaks:
+      enabled: true       # secret scanning - will catch the hardcoded JWT secret
+    semgrep:
+      enabled: true        # will help flag the eval()/exec() security issues
+    osvScanner:
+      enabled: true
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  web_search:
+    enabled: true
