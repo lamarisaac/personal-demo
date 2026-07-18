@@ -23,8 +23,7 @@ reviews:
     # reviewed. Accepts regex patterns; '.*' matches every branch.
     base_branches:
       - "dev"
-      - "feature/.*"
-      - "fix/.*"
+      - "base"
   tools:
     eslint:
       enabled: true
